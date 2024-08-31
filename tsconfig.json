@@ -31,7 +31,8 @@
   },
   "include": [
     "src",
-    "electron.vite.config.*"
+    "electron.vite.config.*",
+    "global.d.ts"
   ],
   "exclude": [
     "node_modules",
