@@ -1,19 +1,20 @@
+//* Libraries imports
 import { Command } from 'cmdk'
-import { File, MagnifyingGlass } from 'phosphor-react'
+import { File, MagnifyingGlass } from '@phosphor-icons/react'
 import { useEffect, useState } from 'react'
 
-export function SearchBar() {
+export function SearchBar(): JSX.Element {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const down = (e: KeyboardEvent) => {
+    const down = (e: KeyboardEvent): void => {
       if (e.key === 'k' && e.metaKey) {
         setOpen((state) => !state)
       }
     }
 
     document.addEventListener('keydown', down)
-    return () => document.removeEventListener('keydown', down)
+    return (): void => document.removeEventListener('keydown', down)
   }, [setOpen])
 
   return (

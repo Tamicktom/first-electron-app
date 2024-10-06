@@ -5,5 +5,5 @@ import { ToCSection } from './Section'
 export const ToC = {
   Root: ToCRoot,
   Link: ToCLink,
-  Section: ToCSection,
+  Section: ToCSection
 }

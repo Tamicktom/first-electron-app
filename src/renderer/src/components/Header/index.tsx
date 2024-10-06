@@ -1,8 +1,11 @@
+//* Libraries imports
 import clsx from 'clsx'
-import { Code, CaretDoubleRight, TrashSimple } from 'phosphor-react'
+import { Code, CaretDoubleRight, TrashSimple } from '@phosphor-icons/react'
+
+//* Components imports
 import * as Breadcrumbs from './Breadcrumbs'
 
-export function Header() {
+export function Header(): JSX.Element {
   const isMacOS = process.platform === 'darwin'
   const isSidebarOpen = true
 
@@ -14,14 +17,15 @@ export function Header() {
         {
           'pl-24': !isSidebarOpen && isMacOS,
           'w-screen': !isSidebarOpen,
-          'w-[calc(100vw-240px)]': isSidebarOpen,
-        },
+          'w-[calc(100vw-240px)]': isSidebarOpen
+        }
       )}
     >
       <button
+        type="button"
         className={clsx('h-5 w-5 text-rotion-200 hover:text-rotion-50', {
           hidden: isSidebarOpen,
-          block: !isSidebarOpen,
+          block: !isSidebarOpen
         })}
       >
         <CaretDoubleRight className="w-4 h-4" />
@@ -42,7 +46,10 @@ export function Header() {
         </Breadcrumbs.Root>
 
         <div className="inline-flex region-no-drag">
-          <button className="inline-flex items-center gap-1 text-sm text-rotion-100 hover:text-rotion-50">
+          <button
+            type="button"
+            className="inline-flex items-center gap-1 text-sm text-rotion-100 hover:text-rotion-50"
+          >
             <TrashSimple className="w-4 h-4" />
             Apagar
           </button>

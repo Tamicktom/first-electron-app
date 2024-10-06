@@ -1,11 +1,15 @@
-import { CaretDown, User } from 'phosphor-react'
+//* Libraries imports
+import { CaretDown, User } from '@phosphor-icons/react'
 
-export function Profile() {
+export function Profile(): JSX.Element {
   const isAuthenticated = false
 
   if (!isAuthenticated) {
     return (
-      <button className="flex items-center gap-2 mx-5 text-sm font-medium text-rotion-100 group">
+      <button
+        type="button"
+        className="flex items-center gap-2 mx-5 text-sm font-medium text-rotion-100 group"
+      >
         <div className="w-5 h-5 p-1 rounded-sm bg-rotion-500">
           <User className="w-3 h-3 text-rotion-300" />
         </div>
@@ -15,7 +19,10 @@ export function Profile() {
   }
 
   return (
-    <button className="flex items-center gap-2 mx-5 text-sm font-medium text-rotion-50 group">
+    <button
+      type="button"
+      className="flex items-center gap-2 mx-5 text-sm font-medium text-rotion-50 group"
+    >
       <img
         className="w-5 h-5 rounded-sm"
         src="https://avatars.githubusercontent.com/u/2254731?v=4"
