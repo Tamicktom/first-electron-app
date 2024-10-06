@@ -10,6 +10,11 @@ function createWindow(): void {
     backgroundColor: '#17141f',
     show: false,
     autoHideMenuBar: true,
+    titleBarStyle: 'hiddenInset',
+    trafficLightPosition: {
+      x: 20,
+      y: 20
+    },
     ...(process.platform === 'linux'
       ? { icon: path.join(__dirname, '../../resources/icon2.png') }
       : {}),
