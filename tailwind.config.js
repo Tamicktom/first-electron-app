@@ -22,6 +22,28 @@ module.exports = {
           800: '#1e1a29',
           900: '#17141f'
         }
+      },
+      keyframes: {
+        'slide-in': {
+          from: {
+            width: 0
+          },
+          to: {
+            width: 'var(--radix-collapsible-content-width)'
+          }
+        },
+        'slide-out': {
+          from: {
+            width: 'var(--radix-collapsible-content-width)'
+          },
+          to: {
+            width: 0
+          }
+        }
+      },
+      animation: {
+        slideIn: 'slide-in 0.2s ease-out',
+        slideOut: 'slide-out 0.2s ease-out'
       }
     }
   },
