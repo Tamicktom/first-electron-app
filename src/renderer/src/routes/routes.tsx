@@ -9,6 +9,7 @@ import { MainLayout } from '../layouts/main'
 
 //* Pages imports
 import { Blank } from '../pages/blank'
+import { Document } from '../pages/document'
 
 export function Routes(): JSX.Element {
   return (
@@ -17,6 +18,7 @@ export function Routes(): JSX.Element {
         <>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Blank />} />
+            <Route path="document/:id" element={<Document />} />
           </Route>
         </>
       }
