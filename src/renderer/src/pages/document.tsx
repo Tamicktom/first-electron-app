@@ -1,7 +1,9 @@
 //* Libraries imports
 import { useParams } from 'react-router-dom'
 
+//* Components imports
 import { ToC } from '../components/ToC'
+import { Editor } from '../components/Editor'
 
 type RouteParams = {
   id: string
@@ -24,7 +26,9 @@ export function Document(): JSX.Element {
         </ToC.Root>
       </aside>
 
-      <section className="flex flex-col items-center flex-1">banana</section>
+      <section className="flex flex-col items-center flex-1">
+        <Editor />
+      </section>
     </div>
   )
 }
