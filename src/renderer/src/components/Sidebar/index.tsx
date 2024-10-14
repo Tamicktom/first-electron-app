@@ -2,6 +2,7 @@
 import * as Collapsible from '@radix-ui/react-collapsible'
 import clsx from 'clsx'
 import { CaretDoubleLeft } from '@phosphor-icons/react'
+import { useQuery } from '@tanstack/react-query'
 
 //* Components imports
 import * as Navigation from './Navigation'
@@ -12,8 +13,12 @@ import { Search } from './Search'
 export function Sidebar(): JSX.Element {
   const isMacOS = process.platform === 'darwin'
 
-  window.api.fetchDocuments({ limit: 10 }).then(console.log)
-
+  const documents = useQuery({
+    queryKey: ['documents'],
+    queryFn: async () => {
+      return await window.api.fetchDocuments()
+    }
+  })
 
   return (
     <Collapsible.Content className="bg-rotion-800 flex-shrink-0 border-r border-rotion-600 h-screen relative group data-[state=open]:animate-slideIn data-[state=closed]:animate-slideOut overflow-hidden">
@@ -51,10 +56,10 @@ export function Sidebar(): JSX.Element {
           <Navigation.Section>
             <Navigation.SectionTitle>Workspace</Navigation.SectionTitle>
             <Navigation.SectionContent>
-              <Navigation.Link>Untitled</Navigation.Link>
-              <Navigation.Link>Discover</Navigation.Link>
-              <Navigation.Link>Ignite</Navigation.Link>
-              <Navigation.Link>Rocketseat</Navigation.Link>
+              {documents.data?.map((document) => {
+                const key = `document-${document.id}`
+                return <Navigation.Link key={key}>{document.title}</Navigation.Link>
+              })}
             </Navigation.SectionContent>
           </Navigation.Section>
         </Navigation.Root>
