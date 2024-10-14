@@ -6,6 +6,9 @@ import path from 'node:path'
 //* Libraries imports
 import { electronRouter } from '../lib/electron-router-dom'
 
+//* Local imports
+import './ipc'
+
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
