@@ -8,6 +8,7 @@ import { electronRouter } from '../lib/electron-router-dom'
 
 //* Local imports
 import './ipc'
+import './store'
 
 function createWindow(): void {
   // Create the browser window.

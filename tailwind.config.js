@@ -1,5 +1,5 @@
-const plugin = require('tailwindcss/plugin')
-const typography = require('@tailwindcss/typography')
+import plugin from 'tailwindcss/plugin'
+import typography from '@tailwindcss/typography'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
