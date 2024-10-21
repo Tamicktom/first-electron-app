@@ -1,5 +1,9 @@
+//* libraries imports
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI, type ElectronAPI } from '@electron-toolkit/preload'
+
+//* Local imports
+import { IPC } from '@/shared/constants/ipc'
 
 declare global {
   export interface Window {
@@ -11,7 +15,7 @@ declare global {
 // Custom APIs for renderer
 const api = {
   fetchDocuments(): Promise<{ id: string; title: string }[]> {
-    return ipcRenderer.invoke('fetch-documents')
+    return ipcRenderer.invoke(IPC.DOCUMENTS.FETCH_ALL)
   }
 }
 

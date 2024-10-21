@@ -1,14 +1,21 @@
 import path from 'node:path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
+import tsconfigPathsPlugin from 'vite-tsconfig-paths'
 import react from '@vitejs/plugin-react'
+
+const tsConfigPaths = tsconfigPathsPlugin({
+  projects: [
+    path.resolve('tsconfig.json'),
+  ]
+})
 
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin()],
+    plugins: [tsConfigPaths, externalizeDepsPlugin()],
     publicDir: path.resolve('resources')
   },
   preload: {
-    plugins: [externalizeDepsPlugin()]
+    plugins: [tsConfigPaths, externalizeDepsPlugin()]
   },
   renderer: {
     define: {
@@ -19,6 +26,6 @@ export default defineConfig({
         '@renderer': path.resolve('src/renderer/src')
       }
     },
-    plugins: [react()]
+    plugins: [tsConfigPaths, react()]
   }
 })

@@ -1,7 +1,10 @@
 //* libraries imports
 import { ipcMain } from 'electron'
 
-ipcMain.handle('fetch-documents', async () => {
+//* Local imports
+import { IPC } from '@/shared/constants/ipc'
+
+ipcMain.handle(IPC.DOCUMENTS.FETCH_ALL, async () => {
   const documents = [
     { id: 1, title: 'Documento 1' },
     { id: 2, title: 'Documento 2' },
